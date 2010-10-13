@@ -1,4 +1,4 @@
-class Mark1
+class MarkI
 
   def initialize(wheel_position)
     @decoded_character_set = Keyboard.shift(wheel_position)

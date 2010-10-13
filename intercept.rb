@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift '.'
+$LOAD_PATH << '.'
 require 'init.rb'
 
 puts Mark1.wheel_position(6).encode('Strong NE Winds!')

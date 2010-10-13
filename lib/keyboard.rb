@@ -12,7 +12,7 @@ class Keyboard < Hash
   end
 
   def self.shift(wheel_position)
-    pristine.inject({}) do |hash, char|
+    pristine.inject(Keyboard.new) do |hash, char|
       index_of_decoded_character = (pristine.index(char) + wheel_position) % pristine.size
       decoded_character = pristine[index_of_decoded_character]
       hash[char] = decoded_character

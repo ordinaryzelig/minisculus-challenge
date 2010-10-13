@@ -17,6 +17,8 @@ class KeyboardTest < SSPATest
     confirm_equal '0', decoded_keyboard[' ']
   end
 
+  private
+
   def not_encrypted?(keyboard)
     keyboard.all? do |encoded, decoded|
       encoded == decoded

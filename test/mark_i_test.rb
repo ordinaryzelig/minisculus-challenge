@@ -1,11 +1,11 @@
 require 'sspa_test'
-require 'mark_1.rb'
+require 'mark_i.rb'
 
-class Mark1Test < SSPATest
+class MarkITest < SSPATest
 
   verify 'encodes "ac" to "fh"' do
-    mark_1 = Mark1.wheel_position(5)
-    confirm_equal 'fh', mark_1.encode('ac')
+    mark_i = MarkI.wheel_position(5)
+    confirm_equal 'fh', mark_i.encode('ac')
   end
 
 end
