@@ -4,8 +4,8 @@ class Mark1
     @decoded_character_set = Keyboard.shift(wheel_position)
   end
 
-  def self.wheel_position(wheel_position)
-    new(wheel_position)
+  class << self
+    alias_method :wheel_position, :new
   end
 
   def encode(str)

@@ -16,15 +16,23 @@ Net::HTTP.start(URI.parse(host).host) do |http|
   def solve_for(key, answer = nil)
     if answer
       response = @http.request_put(key, {:answer => answer}.to_json, @put_headers)
-      response['location']
+      print answer + ' is '
+      if response.code == '303'
+        puts 'correct'
+        response['location']
+      else
+        puts 'wrong'
+        exit
+      end
     else
       question_path = request_question(key)
-      puts "question path: #{question_path}"
+      puts "next question path: #{question_path}"
     end
   end
 
   question_1 = http.request_get('/start', @get_headers)['location']
   question_2 = solve_for(question_1, 'Yzxutm5TK5cotjy2')
-  question_3 = solve_for(question_2)
+  question_3 = solve_for(question_2, 'Wkh2Ghvhuw2Ir.2zloo2pryh2632wdqnv2wr2Fdodlv2dw2gdzq')
+  question_4 = solve_for(question_3)
 
 end
