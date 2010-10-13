@@ -6,6 +6,7 @@ class MarkII < MarkI
 
   class << self
     alias_method :wheel_positions, :new
+    undef :wheel_position
   end
 
 end

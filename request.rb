@@ -33,6 +33,6 @@ Net::HTTP.start(URI.parse(host).host) do |http|
   question_1 = http.request_get('/start', @get_headers)['location']
   question_2 = solve_for(question_1, 'Yzxutm5TK5cotjy2')
   question_3 = solve_for(question_2, 'Wkh2Ghvhuw2Ir.2zloo2pryh2632wdqnv2wr2Fdodlv2dw2gdzq')
-  question_4 = solve_for(question_3)
+  question_4 = solve_for(question_3, 'JMl0kBp?20QixoivSc.2"vvmls8KOk"0jA,4kgt0OmUb,pm.')
 
 end

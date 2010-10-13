@@ -1,7 +1,7 @@
 class MarkI
 
   def initialize(wheel_position)
-    @decoded_character_set = Keyboard.shift(wheel_position)
+    @keyboard = Keyboard.shift(wheel_position)
   end
 
   class << self
@@ -10,7 +10,7 @@ class MarkI
 
   def encode(str)
     str.each_char.map do |char|
-      @decoded_character_set[char]
+      @keyboard.press(char).shifted
     end.join
   end
 
