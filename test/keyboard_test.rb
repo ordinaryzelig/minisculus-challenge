@@ -24,17 +24,17 @@ class KeyboardTest < SSPATest
 
   verify 'press key by character' do
     keyboard = Keyboard.shift(0)
-    confirm keyboard.press('0').is_a?(Keyboard::Key)
+    confirm_equal '0', keyboard.press('0').shifted
   end
 
-  verify 'press key by position in machine alphabet' do
+  verify 'key at position wraps around properly' do
     keyboard = Keyboard.shift(0)
-    confirm keyboard.press(0).is_a?(Keyboard::Key)
+    confirm_equal keyboard.key_at(0), keyboard.key_at(keyboard.size)
   end
 
-  verify 'press key by index wraps around properly' do
-    keyboard = Keyboard.shift(0)
-    confirm_equal keyboard.press(0), keyboard.press(keyboard.size)
+  verify 'determine the pressed key from a shifted character' do
+    keyboard = Keyboard.shift(1)
+    confirm_equal '0', keyboard.unshift('1').pressed
   end
 
   private

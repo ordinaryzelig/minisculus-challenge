@@ -4,10 +4,11 @@ task :test do
   require './init'
   Dir.foreach(ROOT_PATH + '/test') do |test|
     next unless test.match(/\.rb$/)
+    next if test.match(/^sspa/)
     begin
       sh "ruby -I test/ test/#{test}"
     rescue
-      continue
+      next
     end
   end
 end

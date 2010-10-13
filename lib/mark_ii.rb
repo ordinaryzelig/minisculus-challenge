@@ -4,9 +4,4 @@ class MarkII < MarkI
     super wheel_position_1 - (wheel_position_2 * 2)
   end
 
-  class << self
-    alias_method :wheel_positions, :new
-    undef :wheel_position
-  end
-
 end

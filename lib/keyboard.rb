@@ -31,17 +31,20 @@ class Keyboard
     Keyboard.new(character_set)
   end
 
-  def press(character_or_index)
-    case character_or_index
-    when String
-      character = character_or_index
-      key = @character_set.detect { |key| key.pressed == character }
-    when Integer
-      index = character_or_index % size
-      key = @character_set[index]
-    end
-    raise ArgumentError.new("no key for #{character_or_index}") unless key
+  def press(character)
+    key = @character_set.detect { |key| key.pressed == character }
+    raise ArgumentError.new("no key for #{character}") unless key
     key
+  end
+
+  def unshift(character)
+    key = @character_set.detect { |key| key.shifted == character }
+    raise ArgumentError.new("no key shifted to #{character}") unless key
+    key
+  end
+
+  def key_at(position)
+    @character_set[position % size]
   end
 
   def size
