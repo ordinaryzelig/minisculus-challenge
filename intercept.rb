@@ -11,3 +11,10 @@ clues = ['FURLIN', 'BUNKER']
 solution = MarkIV.solve_for(code, clues)
 puts solution.wheel_position_combinations.inspect
 puts solution.message
+# email reply.
+code = "1,0yv.lHAol5w03OntLc7GPfF0gy.D3w0HUgkROYenHe'cai!5dyhGLgf?'RNYeavHSq4Pc0oqFvy'htJO'UzDYstTlL7VXz 9ZNXv1rP231lYqdVn1lL7Te5 jH0Hg4k Pdgdzsnyi.ht55Hg4k ZuafHg5uu,jc0sak  YstThHRXz 9ZVn1lL7VUgn5 Nf9ddB3sE5w03L"
+MarkIV.permute do |wheel_positions|
+  puts MarkIV.with_wheel_positions(*wheel_positions).decode(code)
+  puts wheel_positions
+  puts
+end

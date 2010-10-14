@@ -17,4 +17,10 @@ class WindTalkerTest < SSPATest
     confirm_equal 'The rockets will strike at coordinates 49.977984 7.9257857 422979.83 5536735.81 on Oct. 7th', solution.message
   end
 
+  verify 'permute goes through all combinations' do
+    permutation = MarkI.permute
+    result = permutation.map { |wheel_position| wheel_position }
+    confirm_equal (0..9).to_a.map { |n| [n] }, result
+  end
+
 end
